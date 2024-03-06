@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Produit>
  */
-class ProduitFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,11 +17,11 @@ class ProduitFactory extends Factory
     public function definition(): array
     {
         return [
-            'nom' => $this->faker->words(4, true),
+            'name' => $this->faker->words(4, true),
             'description' => $this->faker->sentence(10),
-            'lien_image' => $this->faker->imageUrl(200, 200, 'Product', true),
-            'prix' => $this->faker->randomFloat(2, 10, 1000),
-            'tva' => $this->faker->randomFloat(2, 10, 10)
+            'image' => $this->faker->imageUrl(200, 200, 'Product', true),
+            'price' => $this->faker->randomFloat(2, 10, 1000),
+            'tva' => $this->faker->randomFloat(2, 0, 1)
         ];
     }
 }

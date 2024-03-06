@@ -24,13 +24,9 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Produit extends Model
+class Product extends Model
 {
 	use HasFactory;
-
-
-	protected $table = 'produits';
-	public $timestamps = false;
 
 	protected $casts = [
 		'prix' => 'float',
@@ -38,15 +34,16 @@ class Produit extends Model
 	];
 
 	protected $fillable = [
-		'nom',
+		'name',
 		'description',
-		'lien_image',
-		'prix',
+		'image',
+		'price',
 		'tva'
 	];
 
-	public function commandes()
-	{
-		return $this->hasMany(Commande::class, 'id_produit');
-	}
+
+	public function getImageAttribute($value)
+    {
+        return asset('storage/' . $value);
+    }
 }
